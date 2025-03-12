@@ -8,13 +8,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
     <!-- Custom CSS -->
     <style>
       /* Custom Styles */
@@ -22,33 +15,32 @@
         font-family: 'Poppins', sans-serif;
         color: #333;
         background: #f8f9fa;
+        margin: 0;
+        padding: 0;
       }
       .hero {
         background: linear-gradient(135deg, #800000, #000000);
         color: #fff;
-        padding: 150px 0;
+        padding: 100px 20px;
         text-align: center;
       }
       .hero h1 {
         font-size: 48px;
         font-weight: 700;
         margin-bottom: 20px;
-        animation: fadeInDown 1s ease-in-out;
       }
       .hero h2 {
         font-size: 24px;
         font-weight: 300;
-        animation: fadeInUp 1s ease-in-out;
-      }
-      .hero .btn {
-        margin-top: 20px;
-        animation: fadeIn 1.5s ease-in-out;
       }
       .btn-primary {
         background: #800000;
         border: none;
         padding: 10px 20px;
         font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
         transition: all 0.3s ease;
       }
       .btn-primary:hover {
@@ -73,17 +65,6 @@
         left: 50%;
         transform: translateX(-50%);
       }
-      .skill-bar {
-        background: #e0e0e0;
-        border-radius: 5px;
-        height: 10px;
-        margin-bottom: 20px;
-      }
-      .skill-bar .progress {
-        background: #800000;
-        height: 100%;
-        border-radius: 5px;
-      }
       .project-card {
         background: #fff;
         border-radius: 10px;
@@ -102,52 +83,19 @@
         padding: 20px 0;
         text-align: center;
       }
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
     </style>
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar">
       <div class="container">
         <a class="navbar-brand" href="#">Ankit Tripathi</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
-            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          </ul>
+        <div class="navbar-nav">
+          <a class="nav-link" href="#home">Home</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#resume">Resume</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#contact">Contact</a>
         </div>
       </div>
     </nav>
@@ -170,7 +118,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="row">
           <div class="col-md-6">
-            <img src="images/about-me.png" class="img-fluid rounded-circle" alt="Ankit Tripathi">
+            <img src="images/about-me.png" alt="Ankit Tripathi" class="img-fluid rounded-circle">
           </div>
           <div class="col-md-6">
             <p>I am a passionate Data Analyst with expertise in **MS Excel** and **dashboard creation**. I specialize in transforming raw data into actionable insights through advanced data analysis and visualization techniques. My goal is to help businesses make data-driven decisions by creating intuitive and impactful dashboards.</p>
@@ -274,15 +222,5 @@
         <p>&copy; 2024 Ankit Tripathi. All Rights Reserved.</p>
       </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-      // Initialize animations
-      AOS.init();
-    </script>
   </body>
 </html>
