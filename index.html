@@ -16,26 +16,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
     <style>
       /* Custom Styles */
       body {
         font-family: 'Poppins', sans-serif;
         color: #333;
+        background: #f8f9fa;
       }
       .hero {
         background: linear-gradient(135deg, #800000, #000000);
         color: #fff;
-        padding: 100px 0;
+        padding: 150px 0;
+        text-align: center;
       }
       .hero h1 {
         font-size: 48px;
         font-weight: 700;
+        margin-bottom: 20px;
+        animation: fadeInDown 1s ease-in-out;
       }
       .hero h2 {
         font-size: 24px;
         font-weight: 300;
+        animation: fadeInUp 1s ease-in-out;
+      }
+      .hero .btn {
+        margin-top: 20px;
+        animation: fadeIn 1.5s ease-in-out;
       }
       .btn-primary {
         background: #800000;
@@ -46,12 +53,25 @@
       }
       .btn-primary:hover {
         background: #660000;
+        transform: translateY(-5px);
       }
       .section-title {
         font-size: 36px;
         font-weight: 700;
         margin-bottom: 30px;
         color: #800000;
+        text-align: center;
+        position: relative;
+      }
+      .section-title::after {
+        content: '';
+        width: 100px;
+        height: 3px;
+        background: #800000;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .skill-bar {
         background: #e0e0e0;
@@ -74,12 +94,41 @@
       }
       .project-card:hover {
         transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
       .footer {
         background: #000000;
         color: #fff;
         padding: 20px 0;
         text-align: center;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     </style>
   </head>
@@ -104,10 +153,10 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero text-center">
+    <section id="home" class="hero">
       <div class="container">
-        <h1 class="animate__animated animate__fadeInDown">Ankit Tripathi</h1>
-        <h2 class="animate__animated animate__fadeInUp">Data Analyst | Excel & Dashboard Specialist</h2>
+        <h1>Ankit Tripathi</h1>
+        <h2>Data Analyst | Excel & Dashboard Specialist</h2>
         <div class="mt-4">
           <a href="https://www.linkedin.com/in/ankittripathiii/" class="btn btn-primary">LinkedIn</a>
           <a href="https://github.com/ankitt994" class="btn btn-primary">GitHub</a>
@@ -118,7 +167,7 @@
     <!-- About Section -->
     <section id="about" class="py-5">
       <div class="container">
-        <h2 class="section-title text-center">About Me</h2>
+        <h2 class="section-title">About Me</h2>
         <div class="row">
           <div class="col-md-6">
             <img src="images/about-me.png" class="img-fluid rounded-circle" alt="Ankit Tripathi">
@@ -139,7 +188,7 @@
     <!-- Resume Section -->
     <section id="resume" class="py-5 bg-light">
       <div class="container">
-        <h2 class="section-title text-center">Resume</h2>
+        <h2 class="section-title">Resume</h2>
         <div class="row">
           <div class="col-md-6">
             <h3>Experience</h3>
@@ -175,7 +224,7 @@
     <!-- Projects Section -->
     <section id="projects" class="py-5">
       <div class="container">
-        <h2 class="section-title text-center">Projects</h2>
+        <h2 class="section-title">Projects</h2>
         <div class="row">
           <!-- Project 1: Atliq Hardware Business Analysis -->
           <div class="col-md-6">
@@ -205,7 +254,7 @@
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
       <div class="container">
-        <h2 class="section-title text-center">Contact</h2>
+        <h2 class="section-title">Contact</h2>
         <div class="row">
           <div class="col-md-6 mx-auto">
             <ul class="list-unstyled text-center">
@@ -231,6 +280,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="js/scripts.js"></script>
+    <script>
+      // Initialize animations
+      AOS.init();
+    </script>
   </body>
 </html>
