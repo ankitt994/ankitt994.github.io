@@ -177,6 +177,54 @@
       .resume-item ul li {
         margin-bottom: 10px;
       }
+
+      /* Business Insights 360 screenshot slider */
+      .business360-card { overflow: hidden; }
+      .bi360-slider {
+        position: relative;
+        width: 100%;
+        margin: 22px 0 10px;
+        background: #171717;
+        border-radius: 9px;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+      }
+      .bi360-slide { display: none; width: 100%; height: 100%; }
+      .bi360-slide.active { display: block; }
+      .bi360-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #171717;
+      }
+      .bi360-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        color: #fff;
+        background: rgba(20, 20, 20, 0.72);
+        cursor: pointer;
+        font-size: 17px;
+      }
+      .bi360-prev { left: 10px; }
+      .bi360-next { right: 10px; }
+      .bi360-arrow:hover { background: #8e2635; }
+      .bi360-dots { display: flex; justify-content: center; gap: 9px; margin: 12px 0 18px; }
+      .bi360-dot {
+        width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%;
+        background: #c8c8c8; cursor: pointer;
+      }
+      .bi360-dot.active { background: #8e2635; transform: scale(1.25); }
+      .bi360-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      @media (max-width: 600px) {
+        .bi360-slider { aspect-ratio: 4 / 3; }
+        .bi360-arrow { width: 34px; height: 34px; }
+      }
     </style>
   </head>
   <body>
@@ -378,17 +426,46 @@
             </div>
           </div>
 
-          <!-- Project 2: Customer Support Performance Analysis -->
+          <!-- Project 2: Business Insights 360 -->
           <div class="col-md-6">
-            <div class="project-card">
+            <div class="project-card business360-card">
               <h3>Business Insights 360</h3>
               <p>
-                Built a business intelligence dashboard covering <strong>Finance, Sales, Marketing and Supply Chain</strong>.
+                An interactive Power BI dashboard bringing together <strong>Finance, Sales, Marketing and Supply Chain</strong> performance in one place.
               </p>
               <p>
-                Focused on business KPIs including revenue, profitability, market performance and supply-chain efficiency using <strong>Power BI, DAX and Power Query</strong>.
+                Explore business KPIs, profitability, customer and product performance, and supply-chain metrics using <strong>Power BI, DAX and Power Query</strong>.
               </p>
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiZmU1YjY5NWQtMTAyNC00Mjk1LThjNmYtZjYzOTcxOGRiMWMwIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" class="btn btn-primary">View Project</a>
+
+              <div class="bi360-slider" aria-label="Business Insights 360 dashboard screenshots">
+                <div class="bi360-slide active">
+                  <img src="images/business-insights-360/Screenshot%202026-11-21%20173622.png" alt="Business Insights 360 dashboard screenshot 1">
+                </div>
+                <div class="bi360-slide">
+                  <img src="images/business-insights-360/Screenshot%202026-11-21%20174708.png" alt="Business Insights 360 dashboard screenshot 2">
+                </div>
+                <div class="bi360-slide">
+                  <img src="images/business-insights-360/Screenshot%202026-11-21%20175704.png" alt="Business Insights 360 dashboard screenshot 3">
+                </div>
+                <div class="bi360-slide">
+                  <img src="images/business-insights-360/Screenshot%202026-11-21%20175737.png" alt="Business Insights 360 dashboard screenshot 4">
+                </div>
+                <div class="bi360-slide">
+                  <img src="images/business-insights-360/Screenshot%202026-11-21%20175800.png" alt="Business Insights 360 dashboard screenshot 5">
+                </div>
+                <button class="bi360-arrow bi360-prev" type="button" aria-label="Previous screenshot">&#10094;</button>
+                <button class="bi360-arrow bi360-next" type="button" aria-label="Next screenshot">&#10095;</button>
+              </div>
+              <div class="bi360-dots" aria-label="Choose screenshot">
+                <button class="bi360-dot active" type="button" aria-label="Show screenshot 1"></button>
+                <button class="bi360-dot" type="button" aria-label="Show screenshot 2"></button>
+                <button class="bi360-dot" type="button" aria-label="Show screenshot 3"></button>
+                <button class="bi360-dot" type="button" aria-label="Show screenshot 4"></button>
+                <button class="bi360-dot" type="button" aria-label="Show screenshot 5"></button>
+              </div>
+              <div class="bi360-actions">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiZTU3YTRkNmYtM2Q4ZC00OWQ4LWIyZDQtNGNmZGU0MzU4NTdjIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Live Power BI Dashboard ↗</a>
+              </div>
             </div>
           </div>
           <div class="col-md-6">
@@ -426,5 +503,21 @@
         <p>&copy; 2026 Ankit Tripathi. All Rights Reserved.</p>
       </div>
     </footer>
-  </body>
+
+  <script>
+    document.querySelectorAll(".bi360-card, .business360-card").forEach(function (card) {
+      const slides = Array.from(card.querySelectorAll(".bi360-slide"));
+      const dots = Array.from(card.querySelectorAll(".bi360-dot"));
+      let current = 0;
+      function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+      }
+      card.querySelector(".bi360-prev").addEventListener("click", () => showSlide(current - 1));
+      card.querySelector(".bi360-next").addEventListener("click", () => showSlide(current + 1));
+      dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
+    });
+  </script>
+\n  </body>
 </html>
